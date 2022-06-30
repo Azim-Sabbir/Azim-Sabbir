@@ -5,4 +5,4 @@
 - 🌱 I’m currently learning React
 - 💬 Ask me about ...
 - 📫 How to reach me: facebook.com/A2imS4bb1r
-- ⚡ Fun fact: I code less, tink more  ;)
+- ⚡ Fun fact: I code less, think more  ;)
