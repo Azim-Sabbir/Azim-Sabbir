@@ -34,7 +34,7 @@
 - 🔭 I’m currently working as software developer at <b><a href="https://www.linkedin.com/company/wpdeveloperdotnet/mycompany/">WPdeveloper<a/></b>
 - 🌱 I’m currently learning React
 - 💬 Ask me about Git, GitHub, PHP, Laravel, Javascript, Vue JS, React JS, MySQL, Shopify
-- 📫 How to reach me: facebook.com/A2imS4bb1r
+- 📫 How to reach me: <a href="facebook.com/A2imS4bb1r">Facebook</a>
 - ⚡ Fun fact: I code less, think more  ;)
 - - -
 
