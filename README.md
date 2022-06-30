@@ -47,7 +47,7 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-plain-wordmark.svg" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original-wordmark.svg" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-plain-wordmark.svg" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
-  <img src="https://torbjornzetterlund.com/wp-content/uploads/2015/06/git-logo.png" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
+  <img src="https://i.pinimg.com/originals/30/b1/50/30b150cd489202db131009ac9540cec0.png" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/bitbucket/bitbucket-original-wordmark.svg" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/composer/composer-original.svg" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/ubuntu/ubuntu-plain-wordmark.svg" title="PHP" alt="PHP" width="40" height="40"/>&nbsp;
