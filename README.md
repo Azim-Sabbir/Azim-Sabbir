@@ -12,7 +12,7 @@
   <a href="https://www.facebook.com/A2imS4bb1r/">
     <img src="https://img.shields.io/badge/Facebook-blue?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook Badge"/>
   </a>
-  <a href="https://www.facebook.com/A2imS4bb1r/">
+  <a href="https://www.facebook.com/MohammadAzimSabbir/">
     <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
   </a>
 </div>
@@ -34,7 +34,7 @@
 - 🔭 I’m currently working as software developer at <b><a href="https://www.linkedin.com/company/wpdeveloperdotnet/mycompany/">WPdeveloper<a/></b>
 - 🌱 I’m currently learning React
 - 💬 Ask me about Git, GitHub, PHP, Laravel, Javascript, Vue JS, React JS, MySQL, Shopify
-- 📫 How to reach me: <a href="facebook.com/A2imS4bb1r">Facebook</a>
+- 📫 How to reach me: <a href="facebook.com/MohammadAzimSabbir">Facebook</a>
 - ⚡ Fun fact: I code less, think more  ;)
 - - -
 
