@@ -29,9 +29,9 @@
 
 [//]: # (</div>)
 
-# I am a Software Developer <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> from Bangladesh.
+# I am a Software Engineer <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> from Bangladesh.
 
-- 🔭 I’m currently working as software developer at <b><a href="https://www.linkedin.com/company/wpdeveloperdotnet/mycompany/">WPdeveloper<a/></b>
+- 🔭 I’m currently working as software Engineer at <b><a href="https://www.linkedin.com/company/wpdeveloperdotnet/mycompany/">WPdeveloper<a/></b>
 - 🌱 I’m currently learning React
 - 💬 Ask me about Git, GitHub, PHP, Laravel, Javascript, Vue JS, React JS, MySQL, Shopify
 - 📫 How to reach me: <a href="facebook.com/MohammadAzimSabbir">Facebook</a>
