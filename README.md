@@ -32,7 +32,7 @@
 # I am a Software Engineer <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> from Bangladesh.
 
 - 🔭 I’m currently working as software Engineer at <b><a href="https://www.linkedin.com/company/wpdeveloperdotnet/mycompany/">WPdeveloper<a/></b>
-- 🌱 I’m currently learning React
+- 🌱 I’m currently learning Docker and Cloud computing.
 - 💬 Ask me about Git, GitHub, PHP, Laravel, Javascript, Vue JS, React JS, MySQL, Shopify
 - 📫 How to reach me: <a href="facebook.com/MohammadAzimSabbir">Facebook</a>
 - ⚡ Fun fact: I code less, think more  ;)
