@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Cover Page Maker</title>
+    <style>
+        /* Styling */
+        body {
+            font-family: times new roman, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 10px solid lightskyblue;
+            border-radius: 10px;
+            box-shadow: 3 3 15px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: relative;
+        }
+        .fixed-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .fixed-section img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .fixed-section h1, .fixed-section h2 {
+            margin: 5px 0;
+            color: darkblue;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 50%;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            display: block;
+            width: 60%;
+            padding: 10px;
+            background-color: #1e90ff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #4682b4;
+        }
+        .cover-page {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border: 10px solid skyblue;
+            page-break-before: always;
+            width: 210mm;
+            height: 297mm; /* A4 size */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .cover-page h1 {
+            font-size: 36px;
+            color: black;
+        }
+        .cover-page h2, .cover-page p {
+            font-size: 28px;
+            margin: 10px 0;
+        }
+        .cover-page p {
+            font-size: 24px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <!-- Fixed Section for Logo, University, Department, and Program -->
+    <div class="fixed-section">
+        <img src="smuct.png" alt="Logo">
+        <h1>Shanto Mariam University of Creative Technology</h1>
+        <h2>Department of Business Administration</h2>
+        <h2>Program: Bachelor of Business Administration</h2>
+        <h2>Assignment</h2>
+          <h2>Batch:64 </h2>         <h2> Group:A</h2>
+    </div>
+
+    <!-- Form Section -->
+    <label for="courseName">Course Name:</label>
+    <select id="courseName" onchange="showsubjectCode()">
+        <option value="" disabled selected>Select Course</option>
+        <option value="Business Statistic II">Business Statistic II</option>
+        <option value="English Communication Skill IV">English Communication Skill IV</option>
+        <option value="Micro Economics">Micro Economics</option>
+        <option value="Entrepreneurship & Small Business Development">Entrepreneurship & Small Business Development</option>
+        <option value="Principles of Finance & Insurance">Principles of Finance & Insurance</option>
+    </select>
+    <p id="showsubjectCode" style="font-weight: bold;"></p>
+
+    <label for="instructorName">Submitted to:</label>
+    <select id="instructorName" onchange="showDesignation()">
+        <option value="" disabled selected>Select Instructor</option>
+        <option value="Ashish Basak">Ashish Basak</option>
+        <option value="Salma Aktar Era">Salma Aktar Era</option>
+        <option value="Akbar Hossain">Akbar Hossain</option>
+        <option value="Ms Maria">Ms Maria</option>
+        <option value="Dil Afroz Khushee">Dil Afroz Khushee</option>
+    </select>
+    <p id="designation" style="font-weight: bold;"></p>
+
+    <label for="studentId1">Submitted by (Student ID):</label>
+    <input type="text" id="studentId1" placeholder="Enter student ID" oninput="populateName('studentId1', 'studentName1')">
+    <p id="studentName1"></p>
+
+    <input type="text" id="studentId2" placeholder="Enter another student ID" oninput="populateName('studentId2', 'studentName2')">
+    <p id="studentName2"></p>
+
+    <label for="date">Submitted Date:</label>
+    <input type="date" id="date">
+
+    <button onclick="generateCoverPage()">Generate Cover Page</button>
+
+    <!-- Buttons for Downloading PDF and JPG -->
+    <button id="downloadPdf">Download PDF</button>
+    <button id="downloadImage">Download Picture</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Generated Cover Page -->
+    <div id="coverPage" class="cover-page" style="display: none;">
+        <div class="fixed-section">
+            <img src="smuct.png" alt="Logo">
+            <h1>Shanto Mariam University of Creative Technology</h1>
+            </br>
+                <h2>Department of Business Administration</h2>
+            </br>
+
+            </br>
+                <h2>Program: Bachelor of Business Administration</h2>
+            </br>
+                <h1>Assignment</h1>
+            </br>
+                <h2>Batch:64 </h2>         <h2> Group:A</h2>
+        </div>
+        <p><strong>Submitted to:</strong> <span id="displayInstructorName"></span></p>
+        <p id="displayDesignation"></p>
+
+        </br> 
+
+        <p><strong>Course Name:</strong> <span id="displayCourseName"></span></p>
+
+        </br>
+
+        <p><strong>Course Code:</strong> <span id="displayCourseCode"></span></p>
+        </br>
+
+        <p><strong>Submitted by:</strong></p>
+        </br>
+        <p id="displayStudent1"></p>
+        <p id="displayStudent1ID"></p>
+        <p id="displayStudent2"></p>
+        <p id="displayStudent2ID"></p>
+
+        </br>
+
+        <p><strong>Submitted Date:</strong> <span id="displayDate"></span></p>
+    </div>
+</div>
+
+
+
+<script>
+    const students = {
+        "222402001": "Bakul Barua",
+        "223401045": "Tasmia Sikder",
+        "223401050": "Alif Md Deep",
+        "223401167": "Md. Nazmul Hossain Sajjad",
+        "223401419": "Sahil Imtiyaz",
+            "231401034": "Md. Rasel",
+            "232401004": "Sabab Mahabub",
+            "232401009": "Md. Jubayer Ahamed",
+            "232401011": "Eddie Fraser",
+            "232401012": "Md. Shihab Shekhor Rohan",
+            "232401013": "Jannatul Fardus Kotha",
+            "232401015": "Umme Umaiya Sadia",
+            "232401016": "Lubna Akter Moyna",
+            "232401018": "Arafat Ali Bijoy",
+            "232401019": "Sayed Alimul Islam",
+            "232401021": "Taharat Rahman",
+            "232401022": "Sharmin Akter Tumpa",
+            "232401023": "Tanvir Ahmed",
+            "232401024": "Mobashwirul Bari Siddiqui",
+            "232401025": "Muhannad Bin Siraj",
+            "232401026": "Muannaf Bin Siraj",
+            "232401027": "Farzana Rahman",
+            "232401029": "Mubassirah Tabassum",
+            "232401030": "Sadia Akter",
+            "232401032": "Mainul Kabir Tanvir",
+            "232401033": "Md. Ariful Islam Lam",
+            "232401034": "Sume Akter",
+            "232401041": "Sadika Sultana Afrin",
+            "232401044": "Md. Mehedi Hasan",
+            "232401045": "Sharmin Akter Joya",
+            "232401047": "Fahmida Hossain",
+            "232401048": "Tasfiha Nasrin Joti",
+            "232401050": "Shairukh Zaman"
+    };
+
+    function showDesignation() {
+        var instructor = document.getElementById("instructorName").value;
+        var designation = "";
+
+        if (instructor === "Ashish Basak") {
+            designation = "Assistant Professor, Department of Business Administration";
+        } else if (instructor === "Salma Aktar Era") {
+            designation = "Lecturer, Department of Business Administration";
+        } else if (instructor === "Akbar Hossain") {
+            designation = "Lecturer, Department of Business Administration";
+        } else if (instructor === "Ms Maria") {
+            designation = "Lecturer, Department of Business Administration";
+        } else if (instructor === "Dil Afroz Khushee") {
+            designation = "Lecturer, Department of Business Administration";
+        }
+
+        document.getElementById("designation").textContent = designation;
+    }
+
+    function showsubjectCode() {
+        const course = document.getElementById("courseName").value;
+        let courseCode = "";
+        if (course === "Business Statistic II") {
+            courseCode = "STAT-2201";
+        } else if (course === "English Communication Skill IV") {
+            courseCode = "ENG-2404";
+        } else if (course === "Micro Economics") {
+            courseCode = "ECO-2303";
+        } else if (course === "Entrepreneurship & Small Business Development") {
+            courseCode = "BUS-2502";
+        } else if (course === "Principles of Finance & Insurance") {
+            courseCode = "FIN-2601";
+        }
+        document.getElementById("showsubjectCode").textContent = "Course Code: " + courseCode;
+    }
+
+    function populateName(inputId, displayId) {
+        const studentId = document.getElementById(inputId).value;
+        const studentName = students[studentId] || "Student Not Found";
+        document.getElementById(displayId).textContent = studentName;
+    }
+
+    function generateCoverPage() {
+        // Populate the cover page with data
+        const instructorName = document.getElementById("instructorName").value;
+        const courseName = document.getElementById("courseName").value;
+        const courseCode = document.getElementById("showsubjectCode").textContent;
+        const student1Name = document.getElementById("studentName1").textContent;
+        const student1Id = document.getElementById("studentId1").value;
+        const student2Name = document.getElementById("studentName2").textContent;
+        const student2Id = document.getElementById("studentId2").value;
+        const submittedDate = document.getElementById("date").value;
+        const designation = document.getElementById("designation").textContent;
+
+        // Set values in the cover page
+        document.getElementById("displayInstructorName").textContent = instructorName;
+        document.getElementById("displayDesignation").textContent = designation;
+        document.getElementById("displayCourseName").textContent = courseName;
+        document.getElementById("displayCourseCode").textContent = courseCode;
+        document.getElementById("displayStudent1").textContent = student1Name;
+        document.getElementById("displayStudent1ID").textContent = `ID: ${student1Id}`;
+        document.getElementById("displayStudent2").textContent = student2Name;
+        document.getElementById("displayStudent2ID").textContent = student2Id ? `ID: ${student2Id}` : '';
+        document.getElementById("displayDate").textContent = submittedDate;
+
+        // Show the cover page
+        document.getElementById("coverPage").style.display = "block";
+    }
+
+    document.getElementById("downloadPdf").addEventListener("click", function () {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF("p", "mm", "a4");
+        const coverPage = document.getElementById("coverPage");
+
+        html2canvas(coverPage).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            doc.addImage(imgData, "PNG", 0, 0, 210, 297);
+            doc.save("cover_page.pdf");
+        });
+    });
+
+    document.getElementById("downloadImage").addEventListener("click", function () {
+        const coverPage = document.getElementById("coverPage");
+
+        // html2canvas(coverPage, { allowTaint: true }).then((canvas) => {
+        //     const link = document.createElement("a");
+        //     link.download = "cover_page.png";
+        //     link.href = canvas.toDataURL("image/png");
+        //     link.click();
+        // });
+
+        html2canvas(coverPage, {
+            useCORS: true, // Ensure images from other origins are handled if CORS is enabled
+        }).then((canvas) => {
+            const link = document.createElement("a");
+            link.download = "cover_page.png"; // File name
+            link.href = canvas.toDataURL("image/png"); // Convert the canvas to a data URL
+
+            link.click(); // Trigger the download
+        });
+
+    });
+</script>
+
+</body>
+</html>
